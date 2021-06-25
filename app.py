@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, render_template
 from os import environ
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
