@@ -18,6 +18,10 @@ class Wage(db.Model):
 def index():
     return render_template("index.html")
 
+@app.route('/data.html')
+def data():
+    return render_template("data.html")
+
 @app.route('/api/wages/postgres')
 def wage_postgres():
     wages = db.session.query(Wage)   
