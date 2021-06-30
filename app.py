@@ -16,7 +16,7 @@ class Wage(db.Model):
 
 @app.route('/')
 def index():
-    return "Wages"
+    return render_template("index.html")
 
 @app.route('/api/wages/postgres')
 def wage_postgres():
