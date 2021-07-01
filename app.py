@@ -37,8 +37,7 @@ def wage_postgres():
 
     for wage in wages:
         data.append({
-            "id": wage.id, 
-            "content": wage.content
+            "Year": wage.Year 
         }) 
 
     return jsonify(data)
