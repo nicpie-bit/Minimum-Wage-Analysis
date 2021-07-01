@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# connection string components
+config.py
+
 # C extensions
 *.so
 
