@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template
-from os import environ
+from os import environ, stat_result
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
@@ -37,8 +37,14 @@ def wage_postgres():
 
     for wage in wages:
         data.append({
-            "Year": wage.Year 
-        }) 
+            "Year": wage.Year,
+            "State": wage.State,
+            "Effective.Minimum.Wage": wage.EffectiveMinimumWage,
+            "Federal.Minimum.Wage": wage.FederalMinimumWage,
+            "Federal.Minimum.Wage.2020.Dollars": wage.FederalMinimumWage2020Dollars,
+            "Effective.Minimum.Wage.2020.Dollars": wage.EffectiveMinimumWage2020Dollars,
+            "CPI.Average": wage.CPIAverage,
+        })
 
     return jsonify(data)
 
