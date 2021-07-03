@@ -36,6 +36,10 @@ def overview():
 def about():
     return render_template("about.html")
 
+@app.route('/index.html')
+def home():
+    return render_template("index.html")
+
 @app.route('/api/wages/postgres')
 def wage_postgres():
     wages = db.session.query(Wage)   
