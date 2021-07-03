@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URI')
 db = SQLAlchemy(app)
 
 class Wage(db.Model):
-    Year = db.Column(db.Integer, primary_key = True)
+    Year = db.Column(db.Integer)
     State = db.Column(db.String)
     EffectiveMinimumWage = db.Column(db.Integer)
     FederalMinimumWage = db.Column(db.Integer)
