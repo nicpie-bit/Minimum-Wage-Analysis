@@ -11,8 +11,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URI')
 db = SQLAlchemy(app)
 
 class Wage(db.Model):
+    ID = db.Column(db.Integer, primary_key = True)
     Year = db.Column(db.Integer)
-    State = db.Column(db.String, primary_key = True)
+    State = db.Column(db.String)
     EffectiveMinimumWage = db.Column(db.Integer)
     FederalMinimumWage = db.Column(db.Integer)
     FederalMinimumWage2020Dollars = db.Column(db.Integer)
@@ -42,6 +43,7 @@ def wage_postgres():
 
     for wage in wages:
         data.append({
+            "ID": wage.ID,
             "Year": wage.Year,
             "State": wage.State,
             "EffectiveMinimumWage": wage.EffectiveMinimumWage,
