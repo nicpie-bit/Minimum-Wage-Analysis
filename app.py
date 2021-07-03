@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 
 class Wage(db.Model):
     Year = db.Column(db.Integer)
-    State = db.Column(db.String)
+    State = db.Column(db.String, primary_key = True)
     EffectiveMinimumWage = db.Column(db.Integer)
     FederalMinimumWage = db.Column(db.Integer)
     FederalMinimumWage2020Dollars = db.Column(db.Integer)
