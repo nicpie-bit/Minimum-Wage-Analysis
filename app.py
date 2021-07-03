@@ -11,8 +11,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URI')
 db = SQLAlchemy(app)
 
 class Wage(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    content = db.Column(db.String)
+    Year = db.Column(db.Integer, primary_key = True)
+    State = db.Cloumn(db.String)
+    EffectiveMinimumWage = db.Column(db.Integer)
+    FederalMinimumWage = db.Column(db.Integer)
+    FederalMinimumWage2020Dollars = db.Column(db.Integer)
+    EffectiveMinimumWage2020Dollars = db.Column(db.Integer)
+    CPIAverage = db.Column(db.Integer)
 
 @app.route('/')
 def index():
