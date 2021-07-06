@@ -1,7 +1,8 @@
 function linedata(data)
 
 function init() {
-    var dropdown = d3.select("#") //referencing back to html  and appending dropdown
+    var dropdown = d3.select("#line") //referencing back to html  and appending dropdown
+    dropdown.html("");
     d3.csv("data/Minimum Wage Data.csv").then(function (data) {
         data.State.forEach((state) => {
             dropdown.append("option")
@@ -24,5 +25,7 @@ function init() {
         var data = [trace1, trace2];
     
         Plotly.newPlot('line', data);
-    })
-}
+    });
+};
+
+init();
