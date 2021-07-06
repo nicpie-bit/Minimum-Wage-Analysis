@@ -103,16 +103,16 @@ body {
 
   #summary {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   #fedminwage {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   #livingwage {
-    font-size: 30px;
+    font-size: 20px;
   }
   
   @media(max-width: 992px) {
