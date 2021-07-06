@@ -3,7 +3,7 @@ function linedata(data)
 function init() {
     var dropdown = d3.select("#line") //referencing back to html  and appending dropdown
     ////dropdown.html("");
-    d3.csv("data/Minimum Wage Data.csv").then(function (data) {
+    d3.json("https://app-wages.herokuapp.com/api/wages/postgres").then(function (data) {
         data.State.forEach((state) => {
             dropdown.append("option")
                 .text(state)
@@ -11,14 +11,14 @@ function init() {
         });
 
         var trace1 = {
-            x: data.Year(),
-            y: data.EffectiveMinimumWage(),
+            x: data.Year,
+            y: data.EffectiveMinimumWage,
             type: 'scatter'
         };
     
         var trace2 = {
-            x: data.Year(),
-            y: data.FederalMinimumWage(),
+            x: data.Year,
+            y: data.FederalMinimumWage,
             type: 'scatter'
         };
     
