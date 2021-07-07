@@ -18,14 +18,17 @@ function init() {
                     y: place.FederalMinimumWage,
                     mode: 'lines+markers'}
         
-        });
+                    var data = [trace1, trace2];
+    
+                    Plotly.newPlot('line', data);    
+        
+        
+                });
 
         
         
     
-        var data = [trace1, trace2];
-    
-        Plotly.newPlot('line', data);
+       
     });
 };
 
