@@ -1,5 +1,3 @@
-function linedata(data)
-
 function init() {
     var dropdown = d3.select("#line") //referencing back to html  and appending dropdown
     ////dropdown.html("");
