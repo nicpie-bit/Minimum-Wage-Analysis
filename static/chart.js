@@ -6,19 +6,22 @@ function init() {
             dropdown.append("option")
                 .text(place.State)
                 .property("value", place.State)
+        
+                var trace1 = {
+                    x: place.Year,
+                    y: place.EffectiveMinimumWage,
+                    mode: 'lines+markers'
+                };
+            
+                var trace2 = {
+                    x: place.Year,
+                    y: place.FederalMinimumWage,
+                    mode: 'lines+markers'}
+        
         });
 
-        var trace1 = {
-            x: place.Year,
-            y: place.EffectiveMinimumWage,
-            mode: 'lines+markers'
-        };
-    
-        var trace2 = {
-            x: place.Year,
-            y: place.FederalMinimumWage,
-            mode: 'lines+markers'
-        };
+        
+        
     
         var data = [trace1, trace2];
     
