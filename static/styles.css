@@ -142,3 +142,36 @@ body {
       outline: auto 5px;
     }
   }
+        
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:20px;
+	top:30px;
+}
+
+.axis text {
+	font: 10px sans-serif;
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+path:hover {fill-opacity: .7;}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  padding: 1px;
+  font: 12px sans-serif;
+  color:#ffffff;
+  text-align: center;
+  background: black;
+  border: 0;
+  border-radius: 10px;
+}
