@@ -3,7 +3,7 @@ function linedata(data)
 function init() {
     var dropdown = d3.select("#line") //referencing back to html  and appending dropdown
     ////dropdown.html("");
-    d3.json("https://app-wages.herokuapp.com/api/wages/postgres").then(function (data) {
+    d3.json("/api/wages/postgres").then(function (data) {
         data.State.forEach((state) => {
             dropdown.append("option")
                 .text(state)
