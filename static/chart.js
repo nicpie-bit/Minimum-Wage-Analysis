@@ -1,22 +1,22 @@
 function init() {
     var dropdown = d3.select("#line") //referencing back to html  and appending dropdown
     ////dropdown.html("");
-    d3.json("/api/wages/postgres").then(function (data) {
-        data.State.forEach((state) => {
+    d3.json("/api/wages/postgres").then(function (data) {console.log(data)
+        data.forEach((place) => {console.log(place)
             dropdown.append("option")
-                .text(state)
-                .property("value", state)
+                .text(place.State)
+                .property("value", place.State)
         });
 
         var trace1 = {
-            x: data.Year,
-            y: data.EffectiveMinimumWage,
+            x: place.Year,
+            y: place.EffectiveMinimumWage,
             type: 'scatter'
         };
     
         var trace2 = {
-            x: data.Year,
-            y: data.FederalMinimumWage,
+            x: place.Year,
+            y: place.FederalMinimumWage,
             type: 'scatter'
         };
     
