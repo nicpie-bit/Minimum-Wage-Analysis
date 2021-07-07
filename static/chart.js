@@ -11,13 +11,13 @@ function init() {
         var trace1 = {
             x: place.Year,
             y: place.EffectiveMinimumWage,
-            type: 'scatter'
+            mode: 'lines+markers'
         };
     
         var trace2 = {
             x: place.Year,
             y: place.FederalMinimumWage,
-            type: 'scatter'
+            mode: 'lines+markers'
         };
     
         var data = [trace1, trace2];
