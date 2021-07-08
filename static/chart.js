@@ -19,9 +19,9 @@ function init() {
                 .text(place)
                 .property("value", place)
 
-            var x = Object.values(place.Year)
-            var y1 = Object.values(place.EffectiveMinimumWage)
-            var y2 = Object.values(place.FederlMinimumWage)
+            var x = data.forEach(place.Year)
+            var y1 = data.forEach(place.EffectiveMinimumWage)
+            var y2 = data.forEach(place.FederlMinimumWage)
 
             
         
