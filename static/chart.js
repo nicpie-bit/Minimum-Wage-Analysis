@@ -19,9 +19,11 @@ function init() {
                 .text(place)
                 .property("value", place)
 
-            var x = data.forEach(place.Year)
-            var y1 = data.forEach(place.EffectiveMinimumWage)
-            var y2 = data.forEach(place.FederlMinimumWage)
+            var x = place.forEach(place.Year)
+            var y1 = place.forEach(place.EffectiveMinimumWage)
+            var y2 = place.forEach(place.FederlMinimumWage)
+
+            var places = []
 
             
         
@@ -44,7 +46,7 @@ function init() {
 
             
 
-                Plotly.newPlot('line', data);  
+                Plotly.newPlot('lines+markers', data);  
         
     
        
