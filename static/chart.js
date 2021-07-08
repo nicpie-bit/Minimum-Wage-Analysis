@@ -19,23 +19,22 @@ function init() {
                 .text(place)
                 .property("value", place)
 
-            var x = place.forEach(place.Year)
-            var y1 = place.forEach(place.EffectiveMinimumWage)
-            var y2 = place.forEach(place.FederlMinimumWage)
-
-            var places = []
-
+       
+            function linedata(place)
+                var year = place.Year
+                var EffectiveWage = place.EffectiveMinimumWage
+                var FederalWage = place.FederalMinimumWage
             
         
                  var trace1 = {
-                    x: x, 
-                    y: y1,
+                    x: year, 
+                    y: EffectiveWage,
                     mode: 'lines+markers'
                   };
             
                  var trace2 = {
-                   x: x,
-                   y: y2,
+                   x: year,
+                   y: FederalWage,
                    mode: 'lines+markers'
                   };
                       var data = [trace1, trace2];
