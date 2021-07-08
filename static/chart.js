@@ -27,7 +27,7 @@ function init() {
             
         
                 var trace1 = {
-                    x: year, 
+                    x: year,
                     y: EffectiveWage,
                     mode: 'lines+markers'
                 };
