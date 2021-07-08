@@ -20,14 +20,14 @@ function init() {
                 .property("value", place)
         
                 var trace1 = {
-                    x: data.Year,
-                   y: data.EffectiveMinimumWage,
+                    x: statename.Year,
+                   y: statename.EffectiveMinimumWage,
                    mode: 'lines+markers'
                  };
             
                 var trace2 = {
-                    x: data.Year,
-                   y: data.FederalMinimumWage,
+                    x: statename.Year,
+                   y: statename.FederalMinimumWage,
                    mode: 'lines+markers'
                  };
                      var data = [trace1, trace2];
