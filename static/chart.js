@@ -1,24 +1,36 @@
+function updatePlotly() { 
+    var dropdownMenu = d3.select("#selState");
+    var dataset = dropdownMenu.property("value");
+    console.log(dataset)
+}
+
 function init() {
-    var dropdown = d3.select("#line") //referencing back to html  and appending dropdown
-    ////dropdown.html("");
-    d3.json("/api/wages/postgres").then(function (data) {console.log(data)
+
+
+    d3.selectAll("#selState").on("change", updatePlotly);
+    
+    var dropdown = d3.select("#selState") //referencing back to html  and appending dropdown
+    
+
+    
+    d3.json("/api/states").then(function (data) {console.log(data)
         data.forEach((place) => {console.log(place)
             dropdown.append("option")
-                .text(place.State)
-                .property("value", place.State)
+                .text(place)
+                .property("value", place)
         
-                var trace1 = {
-                    x: place.Year,
-                    y: place.EffectiveMinimumWage,
-                    mode: 'lines+markers'
-                };
+                // var trace1 = {
+                //     x: place.Year,
+                //     y: place.EffectiveMinimumWage,
+                //     mode: 'lines+markers'
+                // };
             
-                var trace2 = {
-                    x: place.Year,
-                    y: place.FederalMinimumWage,
-                    mode: 'lines+markers'
-                };
-                    var data = [trace1, trace2];
+                // var trace2 = {
+                //     x: place.Year,
+                //     y: place.FederalMinimumWage,
+                //     mode: 'lines+markers'
+                // };
+                //     var data = [trace1, trace2];
                  
                     
         
@@ -26,7 +38,7 @@ function init() {
 
             
 
-                Plotly.newPlot('line', data);  
+                //Plotly.newPlot('line', data);  
         
     
        

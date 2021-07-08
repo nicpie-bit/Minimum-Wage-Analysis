@@ -40,9 +40,18 @@ def about():
 def home():
     return render_template("index.html")
 
-@app.route('/api/wages/postgres')
-def wage_postgres():
-    wages = db.session.query(Wage)   
+@app.route('/api/states')
+def get_states():
+    states = db.session.query(Wage.State).distinct().all()
+    data = [row[0] for row in states]
+    return jsonify(data)
+
+
+
+
+@app.route('/api/wages/<statename>')
+def wage_postgres(statename):
+    wages = db.session.query(Wage).filter_by(State = statename)   
     data = []
 
     for wage in wages:
