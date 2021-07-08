@@ -11,48 +11,44 @@ function init() {
     
     var dropdown = d3.select("#selState") //referencing back to html  and appending dropdown
     
-
-    
     d3.json("/api/states").then(function (data) {console.log(data)
         data.forEach((place) => {console.log(place)
             dropdown.append("option")
                 .text(place)
                 .property("value", place)
+                
+    });
+     
+    d3.json("/api/wages/<statename>").then(function (statename) {console.log(statename)
+        statename.forEach((state) );
 
-       
-    d3.json('/api/wages/<statename>').then(function (data) {
-        data.forEach(state) 
-    } )
-        function linedata(state) {
-            var year = state.Year
-            var EffectiveWage = state.EffectiveMinimumWage
-            var FederalWage = state.FederalMinimumWage
-            }
-                var trace1 = {
-                    x: year,
-                    y: EffectiveWage,
-                    mode: 'lines+markers'
+    
+    });
+        var trace1 = {
+            x: data.Year,
+            y: data.EffectiveMinimumWage,
+            mode: 'lines+markers'
                 };
             
-                var trace2 = {
-                   x: year,
-                   y: FederalWage,
-                   mode: 'lines+markers'
+        var trace2 = {
+            x: data.Year,
+            y: data.FederalMinimumWage,
+            mode: 'lines+markers'
                 };
                 
-                var data = [trace1, trace2];
+        var data = [trace1, trace2];
                  
-                    
+               
         
             });
 
             
 
-                Plotly.newPlot('lines+markers', data);  
+        Plotly.newPlot('lines+markers', data);  
         
     
        
-    });
+    
 };
 
 init();

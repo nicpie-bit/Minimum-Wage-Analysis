@@ -51,8 +51,10 @@ def get_states():
 
 @app.route('/api/wages/<statename>')
 def wage_postgres(statename):
-    wages = db.session.query(Wage).filter_by(State = statename)   
+    wages = db.session.query(Wage).filter_by(State = statename)  
     data = []
+
+
 
     for wage in wages:
         data.append({
