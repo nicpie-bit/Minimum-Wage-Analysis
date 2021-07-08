@@ -18,19 +18,25 @@ function init() {
             dropdown.append("option")
                 .text(place)
                 .property("value", place)
-        
-                // var trace1 = {
-                //     x: statename.Year,
-                //    y: statename.EffectiveMinimumWage,
-                //    mode: 'lines+markers'
-                //  };
+
+            var x = Object.values(place.Year)
+            var y1 = Object.values(place.EffectiveMinimumWage)
+            var y2 = Object.values(place.FederlMinimumWage)
+
             
-                // var trace2 = {
-                //     x: statename.Year,
-                //    y: statename.FederalMinimumWage,
-                //    mode: 'lines+markers'
-                //  };
-                //      var data = [trace1, trace2];
+        
+                 var trace1 = {
+                    x: x, 
+                    y: y1,
+                    mode: 'lines+markers'
+                  };
+            
+                 var trace2 = {
+                   x: x,
+                   y: y2,
+                   mode: 'lines+markers'
+                  };
+                      var data = [trace1, trace2];
                  
                     
         
@@ -38,7 +44,7 @@ function init() {
 
             
 
-                //Plotly.newPlot('line', data);  
+                Plotly.newPlot('line', data);  
         
     
        
