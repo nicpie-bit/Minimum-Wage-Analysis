@@ -16,16 +16,16 @@ function init() {
                 var trace2 = {
                     x: place.Year,
                     y: place.FederalMinimumWage,
-                    mode: 'lines+markers'}
-        
+                    mode: 'lines+markers'
+                };
                     var data = [trace1, trace2];
-    
-                    Plotly.newPlot('line', data);    
+                 
         
         
-                });
+            });
 
         
+                Plotly.newPlot('line', data);  
         
     
        
