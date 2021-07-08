@@ -20,10 +20,10 @@ function init() {
                 .property("value", place)
 
        
-            function linedata(place)
+            function linedata(place) {
                 var year = place.Year
                 var EffectiveWage = place.EffectiveMinimumWage
-                var FederalWage = place.FederalMinimumWage
+                var FederalWage = place.FederalMinimumWage}
             
         
                  var trace1 = {
