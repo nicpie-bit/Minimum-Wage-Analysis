@@ -20,12 +20,14 @@ function init() {
                 .property("value", place)
 
        
-            function linedata(place) {
-                var year = place.Year
-                var EffectiveWage = place.EffectiveMinimumWage
-                var FederalWage = place.FederalMinimumWage}
-            
-        
+    d3.json('/api/wages/<statename>').then(function (data) {
+        data.forEach(state) 
+    } )
+        function linedata(state) {
+            var year = state.Year
+            var EffectiveWage = state.EffectiveMinimumWage
+            var FederalWage = state.FederalMinimumWage
+            }
                 var trace1 = {
                     x: year,
                     y: EffectiveWage,
