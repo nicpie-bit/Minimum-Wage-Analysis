@@ -24,7 +24,8 @@ function init() {
         
             });
 
-        
+            var data = [trace1, trace2];
+            
                 Plotly.newPlot('line', data);  
         
     
