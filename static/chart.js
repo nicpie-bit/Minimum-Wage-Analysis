@@ -26,18 +26,19 @@ function init() {
                 var FederalWage = place.FederalMinimumWage}
             
         
-                 var trace1 = {
+                var trace1 = {
                     x: year, 
                     y: EffectiveWage,
                     mode: 'lines+markers'
-                  };
+                };
             
-                 var trace2 = {
+                var trace2 = {
                    x: year,
                    y: FederalWage,
                    mode: 'lines+markers'
-                  };
-                      var data = [trace1, trace2];
+                };
+                
+                var data = [trace1, trace2];
                  
                     
         
