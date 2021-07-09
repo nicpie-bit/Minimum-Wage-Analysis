@@ -122,6 +122,10 @@ body {
   h3 {
     font-size: 20px;
   }
+
+  #links {
+    color: blue;
+  }
   
   @media(max-width: 992px) {
     .navbar-expand-lg {
