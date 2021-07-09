@@ -1,7 +1,7 @@
 function updatePlotly() { 
     var dropdownMenu = d3.select("#selState");
     var dataset = dropdownMenu.property("value");
-    console.log(dataset)
+    console.log(dataset);
 }
 
 function init() {
@@ -18,21 +18,23 @@ function init() {
                 .property("value", place)
                 
     });
+    
      
-    d3.json("/api/wages/<statename>").then(function (statename) {console.log(statename)
-        statename.forEach((state) );
+    d3.json("/api/wages/California").then(function (statename) {console.log(statename)
+        var statedata = statename;
+        //statename.forEach((state) );
 
     
-    });
+    
         var trace1 = {
-            x: data.Year,
-            y: data.EffectiveMinimumWage,
+            x: statedata.Year,
+            y: statedata.EffectiveMinimumWage,
             mode: 'lines+markers'
                 };
             
         var trace2 = {
-            x: data.Year,
-            y: data.FederalMinimumWage,
+            x: statedata.Year,
+            y: statedata.FederalMinimumWage,
             mode: 'lines+markers'
                 };
                 
@@ -40,15 +42,15 @@ function init() {
                  
                
         
-            });
+            
 
             
 
-        Plotly.newPlot('lines+markers', data);  
-        
+        Plotly.newPlot('line', trace1);  
+            });    
     
        
-    
-};
+            });   
+}
 
 init();

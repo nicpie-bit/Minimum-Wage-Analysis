@@ -53,7 +53,7 @@ def get_states():
 def wage_postgres(statename):
     wages = db.session.query(Wage).filter_by(State = statename)  
     data = []
-
+    return jsonify(data)
 
 
     for wage in wages:
