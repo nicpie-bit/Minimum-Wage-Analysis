@@ -123,6 +123,10 @@ body {
     font-size: 20px;
   }
 
+  .grid-container {
+    gap: 20px;
+  }
+
   #links {
     color: blue;
   }
