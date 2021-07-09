@@ -124,8 +124,7 @@ body {
   }
 
   .grid-container {
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 50px;
   }
 
   #links {
