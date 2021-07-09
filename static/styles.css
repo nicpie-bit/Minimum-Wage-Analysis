@@ -126,6 +126,10 @@ body {
   #links {
     color: blue;
   }
+
+  #libararies {
+    color: pink;
+  }
   
   @media(max-width: 992px) {
     .navbar-expand-lg {
