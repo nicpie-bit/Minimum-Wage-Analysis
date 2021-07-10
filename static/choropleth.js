@@ -21,7 +21,7 @@ let path = d3.geoPath() // path generator that will convert GeoJSON to SVG paths
   .projection(projection); // tell path generator to use albersUsa projection
 
 function createPlot() {
-	d3.selectAll("svg > *").remove();
+	d3.selectAll("svg, svg > *").remove();
 	// create SVG element and append map to the SVG
 	let svg = d3.select("body")
 		.append("svg")
