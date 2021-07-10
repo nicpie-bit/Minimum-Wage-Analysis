@@ -76,10 +76,11 @@ def get_years():
     data = [row[0] for row in years]
     return jsonify(data)
 
-@app.route('/api/wages/<year>')
-def yearly_wage(selectedyear):
-    wages_by_year = db.session.query(Wage).filter_by(Year = selectedyear)  
+@app.route('/api/wagesbyyear/<year>')
+def yearly_wage(year):
+    wages_by_year = db.session.query(Wage).filter_by(Year = year)  
     year_data = []
+    
 
     for wage in wages_by_year:
         year_data.append({
@@ -90,7 +91,9 @@ def yearly_wage(selectedyear):
             "FederalMinimumWage": wage.FederalMinimumWage,
             "FederalMinimumWage2020Dollars": wage.FederalMinimumWage2020Dollars,
             "EffectiveMinimumWage2020Dollars": wage.EffectiveMinimumWage2020Dollars,
+            "CPIAverage": wage.CPIAverage,
         })
+
 
     return jsonify(year_data)
 
