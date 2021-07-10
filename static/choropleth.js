@@ -95,7 +95,7 @@ function createPlot() {
 			// add a legend
 			var w = 140, h = 300;
 
-			var key = d3.select("body")
+			var key = d3.select("#scale")
 				.append("svg")
 				.attr("width", w)
 				.attr("height", h)
