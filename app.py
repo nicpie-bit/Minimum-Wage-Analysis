@@ -81,6 +81,19 @@ def yearly_wage(selectedyear):
     wages_by_year = db.session.query(Wage).filter_by(Year = selectedyear)  
     year_data = []
 
+    for wage in wages_by_year:
+        year_data.append({
+            "ID": wage.ID,
+            "Year": wage.Year,
+            "State": wage.State,
+            "EffectiveMinimumWage": wage.EffectiveMinimumWage,
+            "FederalMinimumWage": wage.FederalMinimumWage,
+            "FederalMinimumWage2020Dollars": wage.FederalMinimumWage2020Dollars,
+            "EffectiveMinimumWage2020Dollars": wage.EffectiveMinimumWage2020Dollars,
+        })
+
+    return jsonify(year_data)
+
 
 if __name__ == '__main__':
      app.run(debug = True)

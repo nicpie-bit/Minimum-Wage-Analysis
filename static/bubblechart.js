@@ -1,39 +1,23 @@
-// Put in app.py
-@app.route('/api/years')
-def get_years():
-    years = db.session.query(Wage.Year).distinct().all()
-    data = [row[0] for row in years]
-    return jsonify(data)
-
-@app.route('/api/wages/<year>')
-def yearly_wage(selectedyear):
-    wages_by_year = db.session.query(Wage).filter_by(Year = selectedyear)  
-    year_data = []
-    for year in years: 
-        data.append
-
-
- //Put in index where we want the chart to go. 
-<div>
-    <canvas id="myBarChart" width="400" height="400"></canvas>
-</div>
-
-<script>
-
-var BarChart;
+var BarChart
 
 
 function BuildBarPlot(data){
-   // Fetch data and console log 
-    d3.json("/api/wages/<year>").then(function(data) {
-        console.log(data);
-        // Define variables
-        var state = data.State; 
-        var year = data.Year; 
-        var minimumWage = data.EffectiveMinimumWage;
-        //xlabels.push(State);
+    var dropdownMenu = d3.select("#selYear");
+    var dataset = dropdownMenu.property("value");
+    console.log(dataset);
 
-        //const xlabels = [];
+   // Fetch data and console log 
+    d3.json(`/api/wages/${dataset}`, function(data) {
+        
+        var yeardata = data;
+        console.log(data)
+ 
+
+        // Define variables
+        var states = data.map( d => d.State) 
+        var year = data.map( d => d.Year)
+        var minimumWage = data.map( d => d.EffectiveMinimumWage)
+        
 
     // Initiate chart.js    
     var ctx = document.getElementById('myBarChart').getContext('2d');
@@ -43,7 +27,7 @@ function BuildBarPlot(data){
     BarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: state,
+            labels: states,
             datasets: [{
                 label: 'Minimum Wage',
                 data: minimumWage,
@@ -61,6 +45,25 @@ function BuildBarPlot(data){
     })
 };
 
+function changeYear() {
+
+
+    d3.selectAll("#selYear").on("change", BuildBarPlot);
+
+    var yeardropdown = d3.select("#selYear") //referencing back to html  and appending dropdown
+
+    d3.json("/api/years", function (data) {
+        
+        data.forEach((year) => {
+            
+            dropdown.append("option")
+                .text(year)
+                .property("value", year)
+
+        });
+    });
+
+}
 
 
 </script>
