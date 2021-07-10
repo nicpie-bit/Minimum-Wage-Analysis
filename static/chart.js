@@ -4,35 +4,27 @@ function updatePlotly() {
     console.log(dataset);
 
 
-    d3.json(`/api/wages/${dataset}`).then(function (statename) {
-        console.log(statename)
-        var statedata = statename;
+    d3.json(`/api/wages/${dataset}`, function (statename) {
         
-        var minwage = []
+        var statedata = statename;
+        console.log(statedata)
+        
+        var years = statedata.map( d => d.Year)
+        console.log(years)
 
-        for (state in statedata){
-
-            minwage.push({
-
-                "Year": state.Year,
-                "EffectiveMinimumWage": state.EffectiveMinimumWage,
-                "FederalMinimumWage": state.FederalMinimumWage
-
-            })
-
-        return jsonify(minwage)}
-
-
+        var effectivewage = statedata.map( d => d.EffectiveMinimumWage)
+        
+        var fedwage = statedata.map(d => d.FederalMinimumWage)
 
         var trace1 = {
-            x: state.Year,
-            y: state.EffectiveMinimumWage,
+            x: years,
+            y: effectivewage,
             mode: 'lines+markers'
         };
 
         var trace2 = {
-            x: state.Year,
-            y: state.FederalMinimumWage,
+            x: years,
+            y: fedwage,
             mode: 'lines+markers'
         };
 
@@ -44,7 +36,7 @@ function updatePlotly() {
 
 
 
-        Plotly.newPlot('line', trace1);
+        Plotly.newPlot('line', data);
     });
 
 
@@ -58,10 +50,10 @@ function init() {
 
     var dropdown = d3.select("#selState") //referencing back to html  and appending dropdown
 
-    d3.json("/api/states").then(function (data) {
-        console.log(data)
+    d3.json("/api/states", function (data) {
+        
         data.forEach((place) => {
-            console.log(place)
+            
             dropdown.append("option")
                 .text(place)
                 .property("value", place)

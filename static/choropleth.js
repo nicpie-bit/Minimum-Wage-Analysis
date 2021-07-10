@@ -43,6 +43,7 @@ function createPlot() {
 			else if (selectedData == "TwoAdultsTwoKids") {dataArray.push(parseFloat(data[d].TwoAdultsTwoKids))}
 			else if (selectedData == "TwoAdultsThreeKids") {dataArray.push(parseFloat(data[d].TwoAdultsThreeKids))}
 		};
+		console.log(dataArray)
 		let valRange = [10,20,30,40,50,60,70]
 		let colRange = ["#fde725", "#95d840", "#29af7f", "#238a8d", "#33638d", "#482677", "#440154"]
 		let ramp = d3.scaleLinear().domain(valRange).range(colRange)
