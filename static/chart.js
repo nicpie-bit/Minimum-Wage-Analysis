@@ -27,14 +27,14 @@ function init() {
     
     
         var trace1 = {
-            x: statedata.Year,
-            y: statedata.EffectiveMinimumWage,
+            x: data.Year,
+            y: data.EffectiveMinimumWage,
             mode: 'lines+markers'
                 };
             
         var trace2 = {
-            x: statedata.Year,
-            y: statedata.FederalMinimumWage,
+            x: data.Year,
+            y: data.FederalMinimumWage,
             mode: 'lines+markers'
                 };
                 
