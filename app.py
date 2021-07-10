@@ -55,7 +55,6 @@ def wage_postgres(statename):
     data = []
     
 
-
     for wage in wages:
         data.append({
             "ID": wage.ID,
@@ -69,6 +68,18 @@ def wage_postgres(statename):
         })
 
     return jsonify(data)
+
+
+@app.route('/api/years')
+def get_years():
+    years = db.session.query(Wage.Year).distinct().all()
+    data = [row[0] for row in years]
+    return jsonify(data)
+
+@app.route('/api/wages/<year>')
+def yearly_wage(selectedyear):
+    wages_by_year = db.session.query(Wage).filter_by(Year = selectedyear)  
+    year_data = []
 
 
 if __name__ == '__main__':
