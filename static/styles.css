@@ -14,11 +14,9 @@ body {
     margin-left: 0px;
     padding: inherit;
     font-weight: bold;
-    background-color: rgb(255, 255, 255);
     font-family: cochin;
   }
   .navbar {
-    background-color: rgb(255, 255, 255);
     font-size: 25px; 
   }
   .active, .dropdown-menu .dropdown-item:active a:hover {
