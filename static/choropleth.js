@@ -23,7 +23,7 @@ let path = d3.geoPath() // path generator that will convert GeoJSON to SVG paths
 function createPlot() {
 	d3.selectAll("svg, svg > *").remove();
 	// create SVG element and append map to the SVG
-	let svg = d3.select("body")
+	let svg = d3.select("#hex")
 		.append("svg")
 		.attr("width", width)
 		.attr("height", height);
