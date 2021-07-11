@@ -14,7 +14,6 @@ body {
     margin-left: 0px;
     padding: inherit;
     font-weight: bold;
-    font-family: cochin;
   }
   .navbar {
     font-size: 25px; 
@@ -57,7 +56,6 @@ body {
   
   .title {
     color: rgb(52, 149, 165);
-    font-family: cochin;
     font-weight: bolder;
     padding-top: 10px;
   }
