@@ -10,7 +10,6 @@ body {
     max-height: 50px;
   }
   .navigation .navbar-brand {
-    color: rgb(52, 149, 165);
     margin-left: 0px;
     padding: inherit;
     font-weight: bold;
@@ -45,7 +44,6 @@ body {
     height:100%;
   }
   .active, .panel:hover {
-    border-color:rgb(52, 149, 165);
     border-style: solid;
     
   }
@@ -55,14 +53,11 @@ body {
   }
   
   .title {
-    color: rgb(52, 149, 165);
     font-weight: bolder;
     padding-top: 10px;
   }
   
   p {
-  color: rgb(52, 149, 165);
-  font-family: 'segoe ui';
   font-size: 16px;
   }
   
