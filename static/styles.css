@@ -169,7 +169,6 @@ path:hover {fill-opacity: .7;}
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  visibility: hidden;
   width: 120px;
   bottom: 100%;
   left: 50%;
@@ -179,7 +178,7 @@ path:hover {fill-opacity: .7;}
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-  /* Position the tooltip text - see examples below! */
+  /* Position the tooltip text*/
   position: absolute;
   z-index: 1;
 }
@@ -192,7 +191,7 @@ path:hover {fill-opacity: .7;}
 .tooltip .tooltiptext::after {
   content: " ";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
+  top: 100%; /* arrow at the bottom of the tooltip */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
