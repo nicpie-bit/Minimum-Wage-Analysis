@@ -26,13 +26,15 @@ function updatePlotly(selectedstate) {
         var trace1 = {
             x: years,
             y: effectivewage,
-            mode: 'lines+markers'
+            mode: 'lines+markers',
+            name: 'Effective Minimum Wage'
         };
 
         var trace2 = {
             x: years,
             y: fedwage,
-            mode: 'lines+markers'
+            mode: 'lines+markers',
+            name: 'Federal Minimum Wage'
         };
 
         var data = [trace1, trace2];
