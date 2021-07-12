@@ -156,15 +156,15 @@ function createPlot() {
 				.attr("transform", "translate(41,10)")
 				.call(yAxis);
 
-			let toolTip = d3.select("body").append("div")
+			let toolTip = d3.select("#hex").append("div")
 				.attr("class", "tooltip")
 
 			dataGroup.on("mouseover", function (d, i) {
 				console.log(d, i)
 				toolTip.style("visibility", "visible");
 				toolTip.html(`${json.features[i].properties.name}<br>${moneyFormatter(json.features[i].properties.value)}`)
-					.style("left", (d3.mouse(this)[0] -400) + "px")
-					.style("top", (d3.mouse(this)[1] -100)+ "px")
+					.style("left", d3.event.pageX + "px")
+					.style("top", d3.event.pageY+ "px")
 			})
 				.on("mouseout", function () {
 					toolTip.style("visibility", "hidden")
