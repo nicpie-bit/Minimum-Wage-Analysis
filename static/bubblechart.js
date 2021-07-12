@@ -1,62 +1,38 @@
+var BarChart=null;
+
+
+// Create plot function 
 function BuildBarPlot() {
     var dropdownMenu = d3.select("#selYear");
     var dataset = dropdownMenu.property("value");
-    console.log(dataset);
 
-    // Fetch data and console log 
+    // Fetch data 
     d3.json(`/api/wagesbyyear/${dataset}`, function (selectedyear) {
 
-        var yeardata = selectedyear;
-        console.log(yeardata)
-
-
         // Define variables
+        var yeardata = selectedyear;
         var states = yeardata.map(d => d.State)
-       // var year = yeardata.map(d => d.Year)
         var minimumWage = yeardata.map(d => d.EffectiveMinimumWage)
 
-//         var trace1 = {
-//             x: states,
-//             y: minimumWage,
-//             type: 'bar', 
-//             marker: {
-//                 color: 'rgb(158,202,225)', 
-//                 opacity: 0.6 
-//             }
-//         };
 
-//         var data = [trace1];
-
-//         var layout = {
-//             title: 'Minimum Wage by State', 
-//             yaxis: {
-//                 range: [0, 15],
-//                 fixedrange: true 
-//             },
-//             xaxis: {
-//                 tickangle: -45
-//             }, 
-//             plot_bgcolor: 'rgba(245,246,249,1)',
-//         }
-//         console.log(data)
-//         Plotly.newPlot('bar', data);
-//     });
-
-// }
-        // Initiate chart.js    
-        
+        // Initiate chart.js      
         var ctx = document.getElementById('myBarChart').getContext('2d');
-       // var change = document.getElementById("#selYear");
-        // Get selected value from the dropdown
-        //var selected = change.options[change.selectedIndex].value;
+
+        // Remove previous chart selection 
+        if(BarChart!=null){
+            BarChart.destroy();
+        }
+        
+        // Build new chart based on selected value
         BarChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: states,
                 datasets: [{
-                    label: 'Minimum Wage',
+                    label: `Minimum Wage by State in ${dataset}`,
                     data: minimumWage,
-                    backgroundColor: 'rgba(245,246,249,1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.4)',
+                    borderColor: 'rgb(54, 162, 235,)',
                     borderWidth: 1
                 }]
             },
@@ -64,6 +40,17 @@ function BuildBarPlot() {
                 scales: {
                     y: {
                         beginAtZero: true,
+                        max: 15,
+                        title: {
+                            display: true,
+                            text: 'Minimum Wage in Dollars'
+                        }
+                    },
+                    x: {
+                        title:{
+                            display: true, 
+                            text: 'State'
+                        }
                     }
                 }
             }
@@ -71,15 +58,15 @@ function BuildBarPlot() {
     })
 };
 
+// Create dropdown function 
 function changeYear() {
 
 
     d3.selectAll("#selYear").on("change", BuildBarPlot);
 
-    var yeardropdown = d3.select("#selYear") //referencing back to html  and appending dropdown
+    var yeardropdown = d3.select("#selYear") 
 
     d3.json("/api/years", function (data) {
-        console.log(data)
         data.forEach((year) => {
 
             yeardropdown.append("option")
