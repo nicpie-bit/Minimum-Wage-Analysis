@@ -163,8 +163,8 @@ function createPlot() {
 				console.log(d,i)
 				toolTip.style("visibility", "visible");
 				toolTip.html(`${json.features[i].properties.name}<br>${moneyFormatter(json.features[i].properties.value)}`)
-					.style("left", d3.mouse(this)[0] + "px")
-					.style("top", d3.mouse(this)[1] + "px")
+					.style("left", (d3.mouse(this)[0] -400) + "px")
+					.style("top", (d3.mouse(this)[1] -100)+ "px")
 			})
 				.on("mouseout", function () {
 					toolTip.style("visibility", "hidden")
