@@ -2,9 +2,15 @@ var BarChart=null;
 
 
 // Create plot function 
-function BuildBarPlot() {
+function BuildBarPlot(dropdownyear) {
     var dropdownMenu = d3.select("#selYear");
-    var dataset = dropdownMenu.property("value");
+    var dataset;
+    if (dropdownyear != 2020){
+        dataset = dropdownMenu.property("value");
+    }
+    else {
+        dataset = 2020
+    }
 
     // Fetch data 
     d3.json(`/api/wagesbyyear/${dataset}`, function (selectedyear) {
@@ -67,7 +73,8 @@ function changeYear() {
     var yeardropdown = d3.select("#selYear") 
 
     d3.json("/api/years", function (data) {
-        data.forEach((year) => {
+        var sorteddata = data.sort().reverse()
+        sorteddata.forEach((year) => {
 
             yeardropdown.append("option")
                 .text(year)
@@ -75,7 +82,7 @@ function changeYear() {
 
         });
     });
-
+BuildBarPlot(2020)
 }
 
 changeYear();

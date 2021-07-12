@@ -1,19 +1,26 @@
-function updatePlotly() {
+function updatePlotly(selectedstate) {
     var dropdownMenu = d3.select("#selState");
-    var dataset = dropdownMenu.property("value");
+    var dataset;
+    if (selectedstate != "North Carolina"){
+        dataset = dropdownMenu.property("value");
+    }
+    else {
+        dataset = "North Carolina"
+    }
+    
     console.log(dataset);
 
 
     d3.json(`/api/wages/${dataset}`, function (statename) {
-        
+
         var statedata = statename;
         console.log(statedata)
-        
-        var years = statedata.map( d => d.Year)
+
+        var years = statedata.map(d => d.Year)
         console.log(years)
 
-        var effectivewage = statedata.map( d => d.EffectiveMinimumWage)
-        
+        var effectivewage = statedata.map(d => d.EffectiveMinimumWage)
+
         var fedwage = statedata.map(d => d.FederalMinimumWage)
 
         var trace1 = {
@@ -40,7 +47,6 @@ function updatePlotly() {
     });
 
 
-
 }
 
 function init() {
@@ -51,16 +57,19 @@ function init() {
     var dropdown = d3.select("#selState") //referencing back to html  and appending dropdown
 
     d3.json("/api/states", function (data) {
-        
-        data.forEach((place) => {
-            
+
+        data.slice(1).forEach((place) => {
+
             dropdown.append("option")
                 .text(place)
                 .property("value", place)
 
         });
+        dropdown.append("option")
+                .text(data[0])
+                .property("value", data[0])
     });
-
+    updatePlotly("North Carolina")
 }
 
 init();
