@@ -15,44 +15,61 @@ function BuildBarPlot() {
        // var year = yeardata.map(d => d.Year)
         var minimumWage = yeardata.map(d => d.EffectiveMinimumWage)
 
-        var trace1 = {
-            x: states,
-            y: minimumWage,
-            type: 'bar'
-        };
+//         var trace1 = {
+//             x: states,
+//             y: minimumWage,
+//             type: 'bar', 
+//             marker: {
+//                 color: 'rgb(158,202,225)', 
+//                 opacity: 0.6 
+//             }
+//         };
 
-        var data = [trace1];
-        console.log(data)
-        Plotly.newPlot('bar', data);
-    });
+//         var data = [trace1];
 
-}
+//         var layout = {
+//             title: 'Minimum Wage by State', 
+//             yaxis: {
+//                 range: [0, 15],
+//                 fixedrange: true 
+//             },
+//             xaxis: {
+//                 tickangle: -45
+//             }, 
+//             plot_bgcolor: 'rgba(245,246,249,1)',
+//         }
+//         console.log(data)
+//         Plotly.newPlot('bar', data);
+//     });
+
+// }
         // Initiate chart.js    
-        //var ctx = document.getElementById('bubble').getContext('2d');
-        //var change = document.getElementById("change_year");
+        
+        var ctx = document.getElementById('myBarChart').getContext('2d');
+       // var change = document.getElementById("#selYear");
         // Get selected value from the dropdown
         //var selected = change.options[change.selectedIndex].value;
-       // BarChart = new Chart(ctx, {
-         //   type: 'bar',
-           // data: {
-             //   labels: states,
-               // datasets: [{
-                 //   label: 'Minimum Wage',
-                   // data: minimumWage,
-                    //backgroundColor: barColors,
-                    ///borderWidth: 1
-                //}]
-            //},
-            //options: {
-              //  scales: {
-                //    y: {
-                  //      beginAtZero: true,
-                    //}
-                //}
-            //}
-        //})
-    //})
-//};
+        BarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: states,
+                datasets: [{
+                    label: 'Minimum Wage',
+                    data: minimumWage,
+                    backgroundColor: 'rgba(245,246,249,1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    }
+                }
+            }
+        })
+    })
+};
 
 function changeYear() {
 
