@@ -38,15 +38,19 @@ function updatePlotly(selectedstate) {
         };
 
         var data = [trace1, trace2];
+        
         var layout = {
+            title: 'Federal and Effective Minimum Wage',
             xaxis: {
-                title: 'Years'
+                title: 'Years',
+                
             },
             yaxis: {
-                title: 'Wage'
+                title: 'Wage',
+                
 
             }
-        }
+        };
 
 
 
@@ -54,7 +58,7 @@ function updatePlotly(selectedstate) {
 
 
 
-        Plotly.newPlot('line', data);
+        Plotly.newPlot('line', data, layout);
     });
 
 
