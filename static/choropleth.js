@@ -160,13 +160,13 @@ function createPlot() {
 					.attr("class", "tooltip")
 	
 	dataGroup.on("mouseover", function(d, i) {
-		toolTip.style("display", "block");
+		toolTip.style("visibility", "visible");
 		toolTip.html(`${json.features[i].properties.name}<br>${moneyFormatter(json.features[i].properties.value)}`)
 			.style("left", d3.event.pageX + "px")
 			.style("top", d3.event.pageY + "px")
 	})
 	.on("mouseout", function(){
-		toolTip.style("display", "none")
+		toolTip.style("visibility", "hidden")
 	})
 	});
 	});
