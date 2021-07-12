@@ -38,6 +38,15 @@ function updatePlotly(selectedstate) {
         };
 
         var data = [trace1, trace2];
+        var layout = {
+            xaxis: {
+                title: 'Years'
+            },
+            yaxis: {
+                title: 'Wage'
+
+            }
+        }
 
 
 
