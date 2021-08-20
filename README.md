@@ -24,8 +24,14 @@ A living wage is defined as the minimum income necessary for a worker to meet th
 
 ## Visualizations:
 * Bar Chart with dropdown that graphs minimum wage by state with the dropdown allowing you to choose the year (using chart.js)
+
+  <img src="images/lauren_graph1.png" width=800>
+  <img src="images/lauren_graph2.png" width=800>
+  
 * Line Graph with filter that compares a state’s minimum wage with the federal minimum wage over time with a filter for state (using D3)
   
   <img src="images/shalyn_graph.png" width=800>
   
 * Hexagonal Map with filter - map of the United States with the states colored by living wage with a filter that categorizes by family (ex: 1 adult 0 kids, or 2 adults 2 kids) with a tool tip that comes up whenever you hover over the state (using highcharts)
+
+  <img src="images/moriah_graph.png" width=800>
