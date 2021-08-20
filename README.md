@@ -7,6 +7,8 @@ Visualize minimum wage and federal wage by state and year to see how it compares
 
 We created a Heroku app to launch our website. We created each HTML page and structured using CSS styling.
 
+  <img src="images/Min_wage_home.png" width=800>
+
 ## Minimum Wage
 As of 2021, the federal minimum wage rate in the United States is $7.25 per hour. Individual states, cities, and localities may pass different minimum wage requirements. This means that it is illegal for an American worker to sell their labor for less than $7.25 per hour unless the worker falls into a category specifically exempted from the Fair Labor Standards Act (FLSA).The government periodically assesses the federal minimum wage level for changes in inflation or cost of living. The federal minimum wage has not increased since July 2009.States will usually set a minimum wage that is reflective of the cost of living in the region. For example, the state of Massachusetts has a minimum wage of $13.50 per hour, while Montana has a minimum wage rate of $8.75.
 
